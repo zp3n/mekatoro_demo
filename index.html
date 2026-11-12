@@ -7,54 +7,9 @@
 <title>自動除雪機 デモ走行</title>
 </head>
 <body>
-<main>
 <h1>自動除雪機 デモ走行</h1>
-<p class="sub">本体は縦72cm×横72cm(ブレード幅72cm・高さ52cm)で、雪は最大100L(約30kg)まで運べます。除雪範囲を往復走行し、満杯になると雪置き場へ捨てに行きます。総雪量は「除雪範囲の面積×積雪深」で決まります。除雪範囲を通るときは空荷の移動中でも必ず雪を集めるため、経路は通過する雪の量(積載量の増加)を見込んで選びます。機体が敷地の外へ出そうになったら停止せず、空荷なら後退、雪を積んでいる間は後退せずに向きを変えて、別ルートで除雪を続けます。雪を落とすのは満載で未除雪の場所を通るときだけです。</p>
+<canvas id="rectangle" width="640" height="480"></canvas>
 
-<div class="card">
-<div class="row" id="tools">
-<button data-t="4" class="on"><span class="sw" style="background:#d11a5a"></span>敷地境界(線)</button>
-<button data-t="1"><span class="sw" style="background:#7d8892"></span>除雪範囲</button>
-<button data-t="2"><span class="sw" style="background:#c9a063"></span>雪置き場</button>
-<button data-t="3"><span class="sw" style="background:#4a545e"></span>障害物</button>
-<button data-t="0">消しゴム</button>
-<label>ブラシ <input type="range" id="brush" min="1" max="6" value="2"></label>
-<button id="bclose">境界を閉じる</button>
-<button id="bclr">境界を消す</button>
-</div>
-</div>
-
-<div class="card">
-<canvas id="cv" width="600" height="396"></canvas>
-<div class="bar"><i id="pg"></i></div>
-<div id="msg"></div>
-<div class="legend"><span class="sw" style="background:#d11a5a"></span>敷地境界(外側は暗く表示) / <span class="sw" style="background:#e8700a"></span>雪を積んだ経路 / <span class="sw" style="background:#2a8f4a"></span>空荷の経路 / 青の破線:除雪レーン</div>
-</div>
-
-<div class="card">
-<div class="row" style="margin-bottom:8px">
-<button class="go" id="run">▶ 走行開始</button>
-<button id="rst">リセット</button>
-<button id="smp">サンプルマップ</button>
-<button id="clr">マップ全消去</button>
-<label>速度 <input type="range" id="spd" min="1" max="30" value="8"><span id="spdv">8x</span></label>
-<label>積雪深 <input type="range" id="depth" min="3" max="30" value="10"><span id="depv">10 cm</span></label>
-<label><input type="checkbox" id="aware" checked>通過する雪の加算を考慮して経路を選ぶ</label>
-</div>
-<div class="stats">
-<div>経過時間<b id="s_t">0:00</b></div>
-<div>除雪範囲の面積 / 総雪量<b id="s_z">-</b></div>
-<div>残りの雪量<b id="s_m">-</b></div>
-<div>除雪進捗<b id="s_p">0%</b></div>
-<div>積載量(最大100L)<b id="s_l">0 L</b></div>
-<div>運搬回数<b id="s_n">0</b></div>
-<div>走行距離<b id="s_d">0 m</b></div>
-<div>運搬中に落とした雪<b id="s_a">0 L</b></div>
-<div>再除雪レーン計画<b id="s_r">0 回</b></div>
-<div>境界手前での後退<b id="s_b">0 回</b></div>
-</div>
-</div>
-</main>
 <script src="./src/script.js"></script>
 </body>
 </html>
